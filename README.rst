@@ -1,14 +1,14 @@
 Jinja2
 ~~~~~~
 
-Jinja2 is a template engine written in pure Python.  It provides a
-`Django`_ inspired non-XML syntax but supports inline expressions and
+Jinja2 движок шаблонов (шаблонизатор) написанный на чистом Python.  It provides a
+`Django`_ вдохновлен не-XML синтаксисом но поддерживает инлайн-выражения и 
 an optional `sandboxed`_ environment.
 
 Nutshell
 --------
 
-Here a small example of a Jinja template:
+Вот небольшой пример шаблона Jinja:
 
 .. code-block:: jinja
 
@@ -22,15 +22,15 @@ Here a small example of a Jinja template:
       </ul>
     {% endblock %}
 
-Philosophy
+Философия
 ----------
 
-Application logic is for the controller, but don't make the template designer's
-life difficult by restricting functionality too much.
+Логика приложения для контроллера, но не осложняйте жизнь дизайнеру шаблона
+ слишком ограничивая функциональность.
 
-For more information visit the new `Jinja2 webpage`_ and `documentation`_.
+Больше информации в `Jinja2 webpage`_ и `documentation`_.
 
-The `Jinja2 tip`_ is installable via ``pip`` with ``pip install
+ `Jinja2 tip`_ устанавливаем через ``pip`` с ``pip install
 https://github.com/pallets/jinja/zipball/master``.
 
 .. _sandboxed: https://en.wikipedia.org/wiki/Sandbox_(computer_security)
@@ -39,7 +39,7 @@ https://github.com/pallets/jinja/zipball/master``.
 .. _documentation: http://jinja.pocoo.org/docs/
 .. _Jinja2 tip: http://jinja.pocoo.org/docs/intro/#as-a-python-egg-via-easy-install
 
-Builds
+Сборки
 ------
 
 +---------------------+------------------------------------------------------------------------------+
