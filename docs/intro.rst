@@ -1,25 +1,23 @@
-Introduction
+Введение
 ============
 
-This is the documentation for the Jinja2 general purpose templating language.
-Jinja2 is a library for Python that is designed to be flexible, fast and secure.
+Это документация по Jinja2 языка шаблонов общего назначения.
+Jinja2 это библиотека для Python гибкая, быстрая и секюрная.
 
-If you have any exposure to other text-based template languages, such as Smarty or
-Django, you should feel right at home with Jinja2.  It's both designer and
-developer friendly by sticking to Python's principles and adding functionality
-useful for templating environments.
+Если у вас есть доступ к другим языкам шаблонов на основе текста, таким как Smarty 
+или Django, вы должны почуствовать себя как дома в Jinja2. Она разработана быть дружелюбной как для программистов так и для дизайнеров придерживаясь принципов Python и добавляя функциональности шаблон-среде.
 
-Prerequisites
+Предпосылки
 -------------
 
-Jinja2 works with Python 2.6.x, 2.7.x and >= 3.3.  If you are using Python
-3.2 you can use an older release of Jinja2 (2.6) as support for Python 3.2
-was dropped in Jinja2 version 2.7.
+Jinja2 работает с Python 2.6.x, 2.7.x и >= 3.3.  Если вы используете Python
+3.2 вы можете использовать старые релизы Jinja2 (2.6) поскольку поддержка Python 3.2
+была остановлена в Jinja2 версии 2.7.
 
-If you wish to use the :class:`~jinja2.PackageLoader` class, you will also
-need `setuptools`_ or `distribute`_ installed at runtime.
+Если вы хотите использовать класс :class:`~jinja2.PackageLoader` вам также нужно
+`setuptools`_ или `distribute`_ installed at runtime.
 
-Installation
+Установка
 ------------
 
 You have multiple ways to install Jinja2.  If you are unsure what to do, go
@@ -77,13 +75,12 @@ automatically for you.
 
 .. _MarkupSafe: https://pypi.python.org/pypi/MarkupSafe
 
-Basic API Usage
----------------
+Использование базового API
+---------------------------
 
-This section gives you a brief introduction to the Python API for Jinja2
-templates.
+В этом разделе вы найдете краткое введение в Python API для шаблонов Jinja2.
 
-The most basic way to create a template and render it is through
+Самый простой способ создать шаблон и сделать его is through
 :class:`~jinja2.Template`.  This however is not the recommended way to
 work with it if your templates are not loaded from strings but the file
 system or another data source:
