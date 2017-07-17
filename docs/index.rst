@@ -1,8 +1,8 @@
-Welcome to Jinja2
-=================
+Добро пожаловать в Jinja2
+=========================
 
-Jinja2 is a modern and designer-friendly templating language for Python,
-modelled after Django's templates.  It is fast, widely used and secure
+Jinja2 это современный и дружественный дизайнеру язык шаблонов для Python,
+смоделированный после Django's templates. Он быстр, широко используем и защищен
 with the optional sandboxed template execution environment:
 
 .. sourcecode:: html+jinja
@@ -16,19 +16,17 @@ with the optional sandboxed template execution environment:
 
 **Features:**
 
--   sandboxed execution
--   powerful automatic HTML escaping system for XSS prevention
--   template inheritance
--   compiles down to the optimal python code just in time
--   optional ahead-of-time template compilation
--   easy to debug.  Line numbers of exceptions directly point to
-    the correct line in the template.
--   configurable syntax
+-   запуск в песочнице
+-   мощная автоматическая система HTML эскейпинга для XSS профилактики
+-   наследование шаблонов
+-   Сводится к оптимальному питонному коду как раз вовремя
+-   Необязательная форматированная компиляция шаблона
+-   простая отладка.  Номра строк исключений указывают прямо на корректные строки шаблона.
+-   конфигурируемый синтаксис
 
 .. include:: contents.rst.inc
 
-If you can't find the information you're looking for, have a look at the
-index or try to find it using the search function:
+Если вы не можете найти нужную информацию, посмотрите индекс или попытайтесь найти его с помощью функции поиска:
 
 * :ref:`genindex`
 * :ref:`search`
