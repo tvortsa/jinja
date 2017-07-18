@@ -84,50 +84,49 @@ printed or iterated over, и потерпеть неудачу для каждо
 
 .. _notes-on-subscriptions:
 
-.. admonition:: Implementation
+.. admonition:: Реализация
 
-    For the sake of convenience, ``foo.bar`` in Jinja2 does the following
-    things on the Python layer:
+    Для удобства, ``foo.bar`` в Jinja2 делает в слое Python следующее:
 
-    -   check for an attribute called `bar` on `foo`
+    -   проверяет атрибут `bar` в `foo`
         (``getattr(foo, 'bar')``)
-    -   if there is not, check for an item ``'bar'`` in `foo`
+    -   если нет, проверяет элемент ``'bar'`` в `foo`
         (``foo.__getitem__('bar')``)
-    -   if there is not, return an undefined object.
+    -   если его нет, возвращает объект undefined.
 
-    ``foo['bar']`` works mostly the same with a small difference in sequence:
+    ``foo['bar']`` Работает в основном одинаково с небольшой разницей в последовательности:
 
-    -   check for an item ``'bar'`` in `foo`.
+    -   проверяет элемент ``'bar'`` в `foo`.
         (``foo.__getitem__('bar')``)
-    -   if there is not, check for an attribute called `bar` on `foo`.
+    -   если нет, проверяет атрибут называемый `bar` в `foo`.
         (``getattr(foo, 'bar')``)
-    -   if there is not, return an undefined object.
+    -   если его нет, возвращает объект undefined.
 
-    This is important if an object has an item and attribute with the same
-    name.  Additionally, the :func:`attr` filter only looks up attributes.
+    Это важно, если объект и атрибут имеют одинаковое имя.
+    Дополнительный фильтр :func:`attr` просматривает только атрибуты.
 
 .. _filters:
 
-Filters
+Фильтры
 -------
 
-Variables can be modified by **filters**.  Filters are separated from the
-variable by a pipe symbol (``|``) and may have optional arguments in
-parentheses.  Multiple filters can be chained.  The output of one filter is
-applied to the next.
+Переменные могут быть модифицированы через **filters**.  Фильтры отделяются от переменных
+символом (``|``) и могут иметь необязательные аргументы в круглых скобках.
+Несколько фильтров могут быть объединены в цепочки. Вывод одного фильтра
+применяется к следующему.
 
-For example, ``{{ name|striptags|title }}`` will remove all HTML Tags from
-variable `name` and title-case the output (``title(striptags(name))``).
+Например, ``{{ name|striptags|title }}`` удалит все HTML тэги из переменной
+`name` и title-case вывод (``title(striptags(name))``).
 
-Filters that accept arguments have parentheses around the arguments, just like
-a function call.  For example: ``{{ listx|join(', ') }}`` will join a list with
-commas (``str.join(', ', listx)``).
+Фильтры, которые принимают аргументы, имеют круглые скобки вокруг аргументов,
+как в вызовах функций. Пример: ``{{ listx|join(', ') }}`` добавит к списку запятые
+(``str.join(', ', listx)``).
 
-The :ref:`builtin-filters` below describes all the builtin filters.
+Фильтры :ref:`builtin-filters` описываемые ниже - являются встроенными.
 
 .. _tests:
 
-Tests
+Тесты
 -----
 
 Beside filters, there are also so-called "tests" available.  Tests can be used
