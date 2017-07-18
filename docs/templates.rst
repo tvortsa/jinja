@@ -1,29 +1,27 @@
-Template Designer Documentation
+Документация дизайнера шаблонов
 ===============================
 
 .. highlight:: html+jinja
 
-This document describes the syntax and semantics of the template engine and
-will be most useful as reference to those creating Jinja templates.  As the
-template engine is very flexible, the configuration from the application can
-be slightly different from the code presented here in terms of delimiters and
+Этот документ описывет синтаксис и семантику движка шаблонов  и наиболее
+полезен будет тем кто создает шаблоны Jinja.  Поскольку движок шаблонов очень гибок,
+конфигурация из приложения может немного отличаться откода представленного здесь in terms of delimiters and
 behavior of undefined values.
 
 
-Synopsis
+Конспект
 --------
 
-A Jinja template is simply a text file. Jinja can generate any text-based
-format (HTML, XML, CSV, LaTeX, etc.).  A Jinja template doesn't need to have a
-specific extension: ``.html``, ``.xml``, or any other extension is just fine.
+Шаблон Jinja это просто текстовый файл. Jinja может генерировать любой text-based
+формат (HTML, XML, CSV, LaTeX, и т.д.).  Шаблон Jinja не нужно иметь какоето
+конкретное расширение: ``.html``, ``.xml``, или другое, это просто отлично.
 
-A template contains **variables** and/or **expressions**, which get replaced
-with values when a template is *rendered*; and **tags**, which control the
-logic of the template.  The template syntax is heavily inspired by Django and
-Python.
+Шаблон содержит **variables** и/или **expressions**, которые заменяются
+значениями когда шаблон будет *rendered*; и **tags**, которые управляют
+логикой шаблона.
 
-Below is a minimal template that illustrates a few basics using the default
-Jinja configuration.  We will cover the details later in this document::
+Ниже приведен минимальный шаблон, который иллюстрирует несколько основ 
+используемых по дефолту конфигураций Jinja. ::
 
     <!DOCTYPE html>
     <html lang="en">
@@ -44,48 +42,45 @@ Jinja configuration.  We will cover the details later in this document::
     </body>
     </html>
 
-The following example shows the default configuration settings.  An application
-developer can change the syntax configuration from ``{% foo %}`` to ``<% foo
-%>``, or something similar.
+В следующем примере показаны настройки конфигурации по умолчанию. 
+Разработчик приложения может изменить конфигурацию синтаксиса из ``{% foo %}`` на ``<% foo
+%>``, или что-то подобное.
 
-There are a few kinds of delimiters. The default Jinja delimiters are
-configured as follows:
+Существует несколько видов разделителей. Разделители по умолчанию Jinja
+сконфигурированы так:
 
-* ``{% ... %}`` for :ref:`Statements <list-of-control-structures>`
-* ``{{ ... }}`` for :ref:`Expressions` to print to the template output
-* ``{# ... #}`` for :ref:`Comments` not included in the template output
-* ``#  ... ##`` for :ref:`Line Statements <line-statements>`
+* ``{% ... %}`` для :ref:`Statements <list-of-control-structures>`
+* ``{{ ... }}`` для :ref:`Expressions` для печати в вывод шаблона
+* ``{# ... #}`` для :ref:`Comments` не включаются в вывод шаблона
+* ``#  ... ##`` для :ref:`Line Statements <line-statements>`
 
 
 .. _variables:
 
-Variables
+Переменные
 ---------
 
-Template variables are defined by the context dictionary passed to the
-template.
+Переменные шаблона определяются контекстным словарем, переданным в шаблон.
 
-You can mess around with the variables in templates provided they are passed in
-by the application.  Variables may have attributes or elements on them you can
-access too.  What attributes a variable has depends heavily on the application
-providing that variable.
+Вы можете работать с переменными в шаблонах если они переданы приложением.
+Переменные могут иметь атрибуты или элементы к которым вы тоже имеете доступ.
+Какие атрибуты переменных сильно зависят от приложения предоставляющего эти переменные.
 
-You can use a dot (``.``) to access attributes of a variable in addition
-to the standard Python ``__getitem__`` "subscript" syntax (``[]``).
+Используйте точку (``.``) для доступа к атрибутам переменных в дополнение к стандартному
+ Python ``__getitem__`` "subscript" синтаксису (``[]``).
 
-The following lines do the same thing::
+Следующие строки делают одно и то же::
 
     {{ foo.bar }}
     {{ foo['bar'] }}
 
-It's important to know that the outer double-curly braces are *not* part of the
-variable, but the print statement.  If you access variables inside tags don't
-put the braces around them.
+Важно понимать что то что за пределами двойных скобок *НЕ* часть переменной,
+а опреатор print.  Если вы обращаетесь к переменным внутри тегов не окружайте их скобками.
 
-If a variable or attribute does not exist, you will get back an undefined
-value.  What you can do with that kind of value depends on the application
-configuration: the default behavior is to evaluate to an empty string if
-printed or iterated over, and to fail for every other operation.
+Если переменная или атрибут не существует, Вы вернетесь к неопределенному
+состоянию. То, что вы можете сделать в таком состоянии зависит от конфигурации
+приложения: дефолтное поведение в том чтобы выяснить это вывод пустой строка
+printed or iterated over, и потерпеть неудачу для каждой другой операции.
 
 .. _notes-on-subscriptions:
 
