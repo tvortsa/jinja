@@ -129,27 +129,26 @@ printed or iterated over, и потерпеть неудачу для каждо
 Тесты
 -----
 
-Beside filters, there are also so-called "tests" available.  Tests can be used
-to test a variable against a common expression.  To test a variable or
-expression, you add `is` plus the name of the test after the variable.  For
+Кроме фильтров, есть так называемые "tests".  Tests можно использовать для
+проверки переменной against a common expression.  Для проверки переменной или выражения,
+добавьте `is` plus the name of the test after the variable.  For
 example, to find out if a variable is defined, you can do ``name is defined``,
 which will then return true or false depending on whether `name` is defined
 in the current template context.
 
-Tests can accept arguments, too.  If the test only takes one argument, you can
-leave out the parentheses.  For example, the following two
-expressions do the same thing::
+Tests также могут принимать аргументы. Если аргумент только один,
+можно обойтись без скобок. Нарример, следующие два выражения эквивалентны::
 
     {% if loop.index is divisibleby 3 %}
     {% if loop.index is divisibleby(3) %}
 
-The :ref:`builtin-tests` below describes all the builtin tests.
+Тесты :ref:`builtin-tests` описанные ниже являются встроенными.
 
 
 .. _comments:
 
-Comments
---------
+Комментарии
+-----------
 
 To comment-out part of a line in a template, use the comment syntax which is
 by default set to ``{# ... #}``.  This is useful to comment out parts of the
@@ -163,10 +162,10 @@ yourself::
     #}
 
 
-Whitespace Control
-------------------
+Управление пробелами
+--------------------
 
-In the default configuration:
+В конфигурации по-умолчанию:
 
 * a single trailing newline is stripped if present
 * other whitespace (spaces, tabs, newlines etc.) is returned unchanged
