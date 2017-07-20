@@ -80,21 +80,21 @@ automatically for you.
 
 В этом разделе вы найдете краткое введение в Python API для шаблонов Jinja2.
 
-Самый простой способ создать шаблон и сделать его is through
-:class:`~jinja2.Template`.  This however is not the recommended way to
-work with it if your templates are not loaded from strings but the file
-system or another data source:
+Самый простой способ создать шаблон и сделать его это через
+:class:`~jinja2.Template`.  Тем не менее этот способ не рекомендуется
+если ваши шаблоны загружаются не через strings а через файловую систему или
+другой источник данных:
 
 >>> from jinja2 import Template
 >>> template = Template('Hello {{ name }}!')
 >>> template.render(name='John Doe')
 u'Hello John Doe!'
 
-By creating an instance of :class:`~jinja2.Template` you get back a new template
-object that provides a method called :meth:`~jinja2.Template.render` which when
-called with a dict or keyword arguments expands the template.  The dict
-or keywords arguments passed to the template are the so-called "context"
-of the template.
+Создавая экземпляр класса :class:`~jinja2.Template` вы получаете новый template
+объект который предоставляет метод :meth:`~jinja2.Template.render` который при вызове
+со словарем или keyword arguments расширяют темплате.  The dict
+or keywords arguments переданные в шаблонe также называют "context"
+шаблона.
 
 What you can see here is that Jinja2 is using unicode internally and the
 return value is an unicode string.  So make sure that your application is
